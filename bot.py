@@ -101,10 +101,7 @@ def return_link(iauuid):
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
 
 
-
-
-
-    driver = webdriver.Chrome('./chromedriver.exe', options=options)
+    # driver = webdriver.Chrome('./chromedriver.exe', options=options)
     driver.get('https://auctions.craftlink.xyz/auctions/%s' %iauuid)
     time.sleep(3)
     html = driver.page_source
