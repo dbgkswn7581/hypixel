@@ -4,6 +4,5 @@ discord
 datetime
 firebase_admin
 requests
-urllib
 BeautifulSoup4
 selenium
