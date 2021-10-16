@@ -8,7 +8,6 @@ import time
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
-from pprint import pprint
 from se_util import count_str_in_list, get_auctions_from_player, return_item_info
 from se_util import getUserid
 
@@ -95,6 +94,15 @@ def return_link(iauuid):
     options.add_argument("--disable-extensions")
     prefs = {'profile.default_content_setting_values': {'cookies' : 2, 'images': 2, 'plugins' : 2, 'popups': 2, 'geolocation': 2, 'notifications' : 2, 'auto_select_certificate': 2, 'fullscreen' : 2, 'mouselock' : 2, 'mixed_script': 2, 'media_stream' : 2, 'media_stream_mic' : 2, 'media_stream_camera': 2, 'protocol_handlers' : 2, 'ppapi_broker' : 2, 'automatic_downloads': 2, 'midi_sysex' : 2, 'push_messaging' : 2, 'ssl_cert_decisions': 2, 'metro_switch_to_desktop' : 2, 'protected_media_identifier': 2, 'app_banner': 2, 'site_engagement' : 2, 'durable_storage' : 2}}   
     options.add_experimental_option('prefs', prefs)
+
+    options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
+
+
+
+
 
     driver = webdriver.Chrome('./chromedriver.exe', options=options)
     driver.get('https://auctions.craftlink.xyz/auctions/%s' %iauuid)
@@ -352,5 +360,4 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 
-# client.run(os.environ['token'])
-client.run("ODk1ODkyMjY2MDEzNTg1NDE5.YV_KsQ.PIfi0u8vsx5qEeUEeZeu3Jtogo8")
+client.run(os.environ['token'])
