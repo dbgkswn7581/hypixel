@@ -207,13 +207,13 @@ async def sell():
                                 iamount = get_item.get('amount')
                                 itier = get_item.get('tier')
 
-                                imlink = return_link(iauuid)
+                                # imlink = return_link(iauuid)
                                 
                                 embed = discord.Embed(title = "%s님의 %s (%s)가 %s coin에 판매되었습니다." %(username, iname, itier, iamount),
                                 description = "Hypixel Skyblock Auction" , color = 0xf64f59
                                 )
-                                embed.add_field(name="아래의 링크를 통해 아이템 정보를 확인하세요!", value="https://auctions.craftlink.xyz/auctions/%s" %iauuid, inline=False)
-                                embed.set_thumbnail(url="%s" %imlink)
+                                # embed.add_field(name="아래의 링크를 통해 아이템 정보를 확인하세요!", value="https://auctions.craftlink.xyz/auctions/%s" %iauuid, inline=False)
+                                # embed.set_thumbnail(url="%s" %imlink)
                                 await user.send(embed=embed)
 
                 for j in range(1, len(item)+1):
