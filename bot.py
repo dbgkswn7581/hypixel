@@ -203,7 +203,7 @@ async def sell():
                                 user = await client.fetch_user(user_id)
 
                                 iname = get_item.get('item_name')
-#                                 iauuid = get_item.get('uuid')
+                                iauuid = get_item.get('uuid')
                                 iamount = get_item.get('amount')
                                 itier = get_item.get('tier')
 
