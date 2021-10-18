@@ -18,6 +18,8 @@ client = commands.Bot(command_prefix='h!')
 async def on_ready():
     game = discord.Game("Skyblock Auction 탐색")
     await client.change_presence(status = discord.Status.online, activity = game)
+    
+    sell.start()
 
 
 
