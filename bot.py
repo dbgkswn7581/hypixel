@@ -20,6 +20,7 @@ async def on_ready():
     await client.change_presence(status = discord.Status.online, activity = game)
     
     sell.start()
+    time.sleep(1)
 
 
 
